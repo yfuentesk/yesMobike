@@ -1,0 +1,42 @@
+﻿<Window x:Class="Mobike.Presentación.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mobike.Presentación"
+        mc:Ignorable="d"
+        Title="Mobike - Menú Principal" Height="854" Width="480">
+    <Grid Background="#FFF8F8F8">
+        <Rectangle Fill="#FFFF4611" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="472"/>
+        <Label Content="Mobike" Background="{x:Null}" Foreground="White" FontSize="48" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="142,0,142,749" HorizontalContentAlignment="Center"/>
+        <Rectangle Fill="#FFF9754F" Height="100" Margin="25,100,25,0" Stroke="Black" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FFF9754F" Height="100" Margin="25,225,25,0" Stroke="Black" VerticalAlignment="Top"/>
+        <Rectangle Fill="#FFF9754F" Height="100" Margin="25,350,25,0" Stroke="Black" VerticalAlignment="Top"/>
+        <Label Content="Iniciar Sesión" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,130,252,652" HorizontalContentAlignment="Center"/>
+        <Label Content="Pedir Bicicleta" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,382,247,400" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btnLogin" Width="75" Height="50" Margin="347,125,50,648" BorderBrush="{x:Null}" Click="btnLogin_Click" Background="White">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="caret.png" Width="50" Height="50"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnSignUp" Width="75" Height="50" Margin="347,250,50,523" Background="White" BorderBrush="{x:Null}" Click="btnSignUp_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="caret.png" Width="50" Height="46"/>
+            </StackPanel>
+        </Button>
+        <Label Content="Registrarse" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,257,277,525" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btnBici" Width="75" Height="50" Margin="347,375,50,398" Background="White" BorderBrush="{x:Null}" Click="btnBici_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="caret.png" Width="50" Height="50"/>
+            </StackPanel>
+        </Button>
+        <Rectangle Fill="#FFF9754F" Height="100" Margin="25,475,25,0" Stroke="Black" VerticalAlignment="Top"/>
+        <Label Content="Ver Mis Recorridos" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,507,190,275" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btnReco" Width="75" Height="50" Margin="347,500,50,273" Background="White" BorderBrush="{x:Null}" Click="btnReco_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="caret.png" Width="50" Height="50"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>
+

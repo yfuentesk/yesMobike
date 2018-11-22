@@ -1,0 +1,14 @@
+﻿<Window x:Class="Mobike.Presentación.PedirBici"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mobike.Presentación"
+        mc:Ignorable="d"
+        Title="Mobike - Pedir Bicicleta" Height="854" Width="480">
+    <Grid Background="#FFF8F8F8">
+        <Rectangle Fill="#FFFF4611" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="472"/>
+        <Label Content="Mobike" Background="{x:Null}" Foreground="White" FontSize="48" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" HorizontalAlignment="Center" Margin="0,0,0,749"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8270307c912547f0b97756473dbf8178" Name="Diagram1">
+        <EntityTypeShape EntityType="MoBikeModel.administrador" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBikeModel.bicicleta" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBikeModel.boleta" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBikeModel.comuna" Width="1.5" PointX="1.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBikeModel.estacionamiento" Width="1.5" PointX="1.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBikeModel.recorrido" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoBikeModel.usuario" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="MoBikeModel.bici_est_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBikeModel.boleta_bici_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBikeModel.reco_bici_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBikeModel.boleta_per_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBikeModel.boleta_reco_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBikeModel.est_comu_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="MoBikeModel.reco_per_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

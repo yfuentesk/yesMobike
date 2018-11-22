@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MoBikeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="administrador">
+    <Key>
+      <PropertyRef Name="id_adm" />
+    </Key>
+    <Property Name="id_adm" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="rol" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bicicleta">
+    <Key>
+      <PropertyRef Name="id_bici" />
+    </Key>
+    <Property Name="id_bici" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="location" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_estF" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="estacionamiento" Relationship="Self.bici_est_fk" FromRole="bicicleta" ToRole="estacionamiento" />
+    <NavigationProperty Name="boleta" Relationship="Self.boleta_bici_fk" FromRole="bicicleta" ToRole="boleta" />
+    <NavigationProperty Name="recorrido" Relationship="Self.reco_bici_fk" FromRole="bicicleta" ToRole="recorrido" />
+  </EntityType>
+  <EntityType Name="boleta">
+    <Key>
+      <PropertyRef Name="id_boleta" />
+    </Key>
+    <Property Name="id_boleta" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_personaF" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_biciF" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_recorridoF" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="bicicleta" Relationship="Self.boleta_bici_fk" FromRole="boleta" ToRole="bicicleta" />
+    <NavigationProperty Name="usuario" Relationship="Self.boleta_per_fk" FromRole="boleta" ToRole="usuario" />
+    <NavigationProperty Name="recorrido" Relationship="Self.boleta_reco_fk" FromRole="boleta" ToRole="recorrido" />
+  </EntityType>
+  <EntityType Name="comuna">
+    <Key>
+      <PropertyRef Name="id_comu" />
+    </Key>
+    <Property Name="id_comu" Type="Int32" Nullable="false" />
+    <Property Name="nombre_comu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="estacionamiento" Relationship="Self.est_comu_fk" FromRole="comuna" ToRole="estacionamiento" />
+  </EntityType>
+  <EntityType Name="estacionamiento">
+    <Key>
+      <PropertyRef Name="id_est" />
+    </Key>
+    <Property Name="id_est" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="capacidad" Type="Int32" Nullable="false" />
+    <Property Name="id_comuF" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="bicicleta" Relationship="Self.bici_est_fk" FromRole="estacionamiento" ToRole="bicicleta" />
+    <NavigationProperty Name="comuna" Relationship="Self.est_comu_fk" FromRole="estacionamiento" ToRole="comuna" />
+  </EntityType>
+  <EntityType Name="recorrido">
+    <Key>
+      <PropertyRef Name="id_recorrido" />
+    </Key>
+    <Property Name="id_recorrido" Type="Int32" Nullable="false" />
+    <Property Name="kilometros" Type="Double" Nullable="false" />
+    <Property Name="inicio_recorrido" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fin_recorrido" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="tiempo_estimado" Type="Double" Nullable="false" />
+    <Property Name="cobro" Type="Double" Nullable="false" />
+    <Property Name="id_personaF" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correoF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="id_biciF" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="bicicleta" Relationship="Self.reco_bici_fk" FromRole="recorrido" ToRole="bicicleta" />
+    <NavigationProperty Name="boleta" Relationship="Self.boleta_reco_fk" FromRole="recorrido" ToRole="boleta" />
+    <NavigationProperty Name="usuario" Relationship="Self.reco_per_fk" FromRole="recorrido" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id_persona" />
+    </Key>
+    <Property Name="id_persona" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tarjeta" Type="Int64" Nullable="false" />
+    <Property Name="saldo" Type="Double" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="boleta" Relationship="Self.boleta_per_fk" FromRole="usuario" ToRole="boleta" />
+    <NavigationProperty Name="recorrido" Relationship="Self.reco_per_fk" FromRole="usuario" ToRole="recorrido" />
+  </EntityType>
+  <Association Name="bici_est_fk">
+    <End Role="estacionamiento" Type="Self.estacionamiento" Multiplicity="1" />
+    <End Role="bicicleta" Type="Self.bicicleta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estacionamiento">
+        <PropertyRef Name="id_est" />
+      </Principal>
+      <Dependent Role="bicicleta">
+        <PropertyRef Name="id_estF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="boleta_bici_fk">
+    <End Role="bicicleta" Type="Self.bicicleta" Multiplicity="1" />
+    <End Role="boleta" Type="Self.boleta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bicicleta">
+        <PropertyRef Name="id_bici" />
+      </Principal>
+      <Dependent Role="boleta">
+        <PropertyRef Name="id_biciF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="reco_bici_fk">
+    <End Role="bicicleta" Type="Self.bicicleta" Multiplicity="1" />
+    <End Role="recorrido" Type="Self.recorrido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bicicleta">
+        <PropertyRef Name="id_bici" />
+      </Principal>
+      <Dependent Role="recorrido">
+        <PropertyRef Name="id_biciF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="boleta_per_fk">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="boleta" Type="Self.boleta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_persona" />
+      </Principal>
+      <Dependent Role="boleta">
+        <PropertyRef Name="id_personaF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="boleta_reco_fk">
+    <End Role="recorrido" Type="Self.recorrido" Multiplicity="1" />
+    <End Role="boleta" Type="Self.boleta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="recorrido">
+        <PropertyRef Name="id_recorrido" />
+      </Principal>
+      <Dependent Role="boleta">
+        <PropertyRef Name="id_recorridoF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="est_comu_fk">
+    <End Role="comuna" Type="Self.comuna" Multiplicity="1" />
+    <End Role="estacionamiento" Type="Self.estacionamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comuna">
+        <PropertyRef Name="id_comu" />
+      </Principal>
+      <Dependent Role="estacionamiento">
+        <PropertyRef Name="id_comuF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="reco_per_fk">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="recorrido" Type="Self.recorrido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id_persona" />
+      </Principal>
+      <Dependent Role="recorrido">
+        <PropertyRef Name="id_personaF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MoBikeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="administrador" EntityType="Self.administrador" />
+    <EntitySet Name="bicicleta" EntityType="Self.bicicleta" />
+    <EntitySet Name="boleta" EntityType="Self.boleta" />
+    <EntitySet Name="comuna" EntityType="Self.comuna" />
+    <EntitySet Name="estacionamiento" EntityType="Self.estacionamiento" />
+    <EntitySet Name="recorrido" EntityType="Self.recorrido" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" />
+    <AssociationSet Name="bici_est_fk" Association="Self.bici_est_fk">
+      <End Role="estacionamiento" EntitySet="estacionamiento" />
+      <End Role="bicicleta" EntitySet="bicicleta" />
+    </AssociationSet>
+    <AssociationSet Name="boleta_bici_fk" Association="Self.boleta_bici_fk">
+      <End Role="bicicleta" EntitySet="bicicleta" />
+      <End Role="boleta" EntitySet="boleta" />
+    </AssociationSet>
+    <AssociationSet Name="reco_bici_fk" Association="Self.reco_bici_fk">
+      <End Role="bicicleta" EntitySet="bicicleta" />
+      <End Role="recorrido" EntitySet="recorrido" />
+    </AssociationSet>
+    <AssociationSet Name="boleta_per_fk" Association="Self.boleta_per_fk">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="boleta" EntitySet="boleta" />
+    </AssociationSet>
+    <AssociationSet Name="boleta_reco_fk" Association="Self.boleta_reco_fk">
+      <End Role="recorrido" EntitySet="recorrido" />
+      <End Role="boleta" EntitySet="boleta" />
+    </AssociationSet>
+    <AssociationSet Name="est_comu_fk" Association="Self.est_comu_fk">
+      <End Role="comuna" EntitySet="comuna" />
+      <End Role="estacionamiento" EntitySet="estacionamiento" />
+    </AssociationSet>
+    <AssociationSet Name="reco_per_fk" Association="Self.reco_per_fk">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="recorrido" EntitySet="recorrido" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

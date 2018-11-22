@@ -1,0 +1,38 @@
+﻿<Window x:Class="Mobike.Presentación.SignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Mobike.Presentación"
+        mc:Ignorable="d"
+        Title="Mobike - Registro de Usuario" Height="854" Width="480">
+    <Grid Background="#FFF8F8F8">
+        <Rectangle Fill="#FFFF4611" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="472"/>
+        <Label Content="Mobike" Background="{x:Null}" Foreground="White" FontSize="48" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" HorizontalAlignment="Center" Margin="0,0,0,749"/>
+        <Button x:Name="registro_test" Content="Button" HorizontalAlignment="Left" Margin="334,398,0,0" VerticalAlignment="Top" Width="79" RenderTransformOrigin="0.5,0.5" Height="29" Click="Button_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.411"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="24" Margin="82,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Direccion" HorizontalAlignment="Left" Margin="17,153,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="81,194,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="23,191,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="82,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Rut" HorizontalAlignment="Left" Margin="41,89,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTarjeta" HorizontalAlignment="Left" Height="23" Margin="81,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Tarjeta" HorizontalAlignment="Left" Margin="23,258,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha de Vencimiento" HorizontalAlignment="Left" Margin="224,196,0,0" VerticalAlignment="Top"/>
+        <Label Content="CVC" HorizontalAlignment="Left" Margin="224,227,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="81,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Correo" HorizontalAlignment="Left" Margin="23,227,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtPass" HorizontalAlignment="Left" Height="23" Margin="81,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Pass" HorizontalAlignment="Left" Margin="40,122,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,12 @@
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\Mobike.Datos.dll.config
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\Mobike.Datos.dll
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\Mobike.Datos.pdb
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\EntityFramework.dll
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\EntityFramework.xml
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.csprojResolveAssemblyReference.cache
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.csproj.CoreCompileInputs.cache
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.csproj.CopyComplete
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.dll
+C:\Users\Ariel\Desktop\YesMoBike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.pdb
