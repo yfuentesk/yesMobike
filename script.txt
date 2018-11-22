@@ -1,0 +1,109 @@
+USE master
+
+CREATE DATABASE "MoBike"
+
+USE MoBike
+
+CREATE TABLE bicicleta (
+    id_bici    NVARCHAR(15) NOT NULL,
+    location   NVARCHAR(300) NOT NULL,
+    estado     NVARCHAR(15) NOT NULL,
+    id_estF    INT NOT NULL
+);
+
+ALTER TABLE bicicleta ADD CONSTRAINT bici_pk PRIMARY KEY ( id_bici );
+
+CREATE TABLE comuna (
+    id_comu       INT NOT NULL,
+    nombre_comu   NVARCHAR(50) NOT NULL
+);
+
+ALTER TABLE comuna ADD CONSTRAINT comu_pk PRIMARY KEY ( id_comu );
+
+CREATE TABLE estacionamiento (
+    id_est      INT NOT NULL,
+    nombre      NVARCHAR(50) NOT NULL,
+    direccion   NVARCHAR(100) NOT NULL,
+    capacidad   INT NOT NULL,
+    id_comuF    INT NOT NULL
+);
+
+ALTER TABLE estacionamiento ADD CONSTRAINT est_pk PRIMARY KEY ( id_est );
+
+
+CREATE TABLE recorrido (
+    id_recorrido       INT NOT NULL,
+    kilometros         FLOAT NOT NULL,
+    inicio_recorrido   DATE NOT NULL,
+    fin_recorrido      DATE NOT NULL,
+    tiempo_estimado    FLOAT NOT NULL,
+    cobro              FLOAT NOT NULL,
+    id_personaF        NVARCHAR(20) NOT NULL,
+    correoF NVARCHAR(50) NOT NULL
+    id_biciF           NVARCHAR(15) NOT NULL
+);
+
+ALTER TABLE recorrido ADD CONSTRAINT reco_pk PRIMARY KEY ( id_recorrido );
+
+CREATE TABLE usuario (
+	id_persona   NVARCHAR(20) NOT NULL,
+    password     NVARCHAR(20) NOT NULL,
+    nombre       NVARCHAR(20) NOT NULL,
+    direccion    NVARCHAR(100) NOT NULL,
+    tarjeta      BIGINT NOT NULL,
+    saldo        FLOAT NOT NULL,
+    correo NVARCHAR(50) NOT NULL
+);
+
+CREATE TABLE administrador (
+	id_adm NVARCHAR(20) NOT NULL,
+	password NVARCHAR(20) NOT NULL,
+	nombre NVARCHAR(20) NOT NULL,
+	rol NVARCHAR(20) NOT NULL
+);
+
+ALTER TABLE administrador ADD CONSTRAINT adm_pk PRIMARY KEY ( id_adm );
+
+ALTER TABLE usuario ADD CONSTRAINT user_pk PRIMARY KEY ( id_persona );
+
+CREATE TABLE boleta(
+	id_boleta INT NOT NULL,
+	fecha Date NOT NULL,
+	id_personaF NVARCHAR(20) NOT NULL,
+	id_biciF NVARCHAR(15) NOT NULL,
+	id_recorridoF INT NOT NULL
+);
+
+ALTER TABLE boleta ADD CONSTRAINT boleta_pk PRIMARY KEY (id_boleta);
+
+ALTER TABLE boleta
+	ADD CONSTRAINT boleta_per_fk FOREIGN KEY ( id_personaF )
+		REFERENCES usuario ( id_persona);
+
+ALTER TABLE boleta
+	ADD CONSTRAINT boleta_bici_fk FOREIGN KEY ( id_biciF )
+		REFERENCES bicicleta ( id_bici );
+
+ALTER TABLE boleta
+	ADD CONSTRAINT boleta_reco_fk FOREIGN KEY ( id_recorridoF)
+		REFERENCES recorrido (id_recorrido);
+
+
+ALTER TABLE bicicleta
+    ADD CONSTRAINT bici_est_fk FOREIGN KEY ( id_estF )
+        REFERENCES estacionamiento ( id_est );
+
+ALTER TABLE estacionamiento
+    ADD CONSTRAINT est_comu_fk FOREIGN KEY ( id_comuF )
+        REFERENCES comuna ( id_comu );
+
+ALTER TABLE recorrido
+    ADD CONSTRAINT reco_bici_fk FOREIGN KEY ( id_biciF )
+        REFERENCES bicicleta ( id_bici );
+
+ALTER TABLE recorrido
+    ADD CONSTRAINT reco_per_fk FOREIGN KEY ( id_personaF )
+        REFERENCES usuario ( id_persona );
+ALTER TABLE recorrido
+  ADD CONSTRAINT reco_corr_fk FOREIGN KEY (correoF)
+       REFERENCES usuario (correo);
