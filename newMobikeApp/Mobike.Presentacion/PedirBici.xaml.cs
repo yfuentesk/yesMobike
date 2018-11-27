@@ -95,9 +95,10 @@ namespace Mobike.Presentación
 
             cmbBici.Items.Refresh();
         }
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            /*
             Manejadora mane = new Manejadora();
             SqlConnection conn = mane.ConexionDBQuery();
 
@@ -128,7 +129,7 @@ namespace Mobike.Presentación
                 conn.Close();
             }
             
-            
+          */  
         }
     }
 }

@@ -85,5 +85,16 @@ namespace Mobike.Negocios
             }
             return ListarEstacionamiento;
         }
+
+        public List<Bicicleta> ListarBicicletas()
+        {
+            List<Bicicleta> ListarBicicleta = new List<Bicicleta>();
+            foreach (Datos.bicicleta b in Conexion.Mob.bicicleta)
+            {
+                Bicicleta nuevaBici = new Bicicleta(b.id_bici,b.location,b.estado,b.id_estF);
+                ListarBicicleta.Add(nuevaBici);
+            }
+            return ListarBicicleta;
+        }
     }
 }

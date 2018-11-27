@@ -11,6 +11,14 @@ namespace Mobike.Negocios
         private string _idBicicleta;
         private string _location;
         private string _estado;
+        private int _estF;
+
+        public int Estacionamiento
+        {
+            get { return _estF; }
+            set { _estF = value; }
+        }
+
 
         public string Estado
         {
@@ -36,13 +44,16 @@ namespace Mobike.Negocios
             _idBicicleta = string.Empty;
             _location = string.Empty;
             _estado = string.Empty;
+
         }
 
-        public Bicicleta(string idBici, string Locacion, string Estado)
+        public Bicicleta(string idBici, string Locacion, string Estado,int Estacionamiento)
         {
             this.IdBicicleta = idBici;
             this.Location = Locacion;
             this.Estado = Estado;
+            this.Estacionamiento = Estacionamiento;
+
         }
 
         #region CRUD
@@ -55,6 +66,7 @@ namespace Mobike.Negocios
                     id_bici = this.IdBicicleta,
                     location = this.Location,
                     estado = this.Estado,
+                    id_estF = this.Estacionamiento
 
                 };
                 Conexion.Mob.bicicleta.Add(bic);
@@ -77,6 +89,7 @@ namespace Mobike.Negocios
                 this.IdBicicleta = bic.id_bici;
                 this.Location = bic.location;
                 this.Estado = bic.estado;
+                this.Estacionamiento = bic.id_estF;
 
 
                 return true;
@@ -94,7 +107,7 @@ namespace Mobike.Negocios
 
                 bic.estado = Estado;
                 bic.location = Location;
-                ;
+                bic.id_estF = Estacionamiento;
 
                 Conexion.Mob.SaveChanges();
                 return true;
