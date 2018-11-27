@@ -29,6 +29,15 @@ namespace Mobike.Presentación
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
 
+
+
+        
+        private void btnComenzarRecorrido(object sender, RoutedEventArgs e)
+        {
+           
+          
+        }
+
         private void ListadoEstacionamientos()
         {
             Manejadora mane = new Manejadora();
@@ -60,76 +69,42 @@ namespace Mobike.Presentación
             }
         }
 
-        private void cmbBici_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cmbEst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Manejadora mane = new Manejadora();
             SqlConnection conn = mane.ConexionDBQuery();
 
-            cmbBici.Items.Clear();
-
+            cmbPatente.Items.Clear();
             try
             {
                 conn.Open();
 
-                int wea = cmbEst.SelectedIndex+1;
-                string query = "SELECT * FROM bicicleta WHERE id_estF = " + wea;
+                int index = cmbEst.SelectedIndex + 1;
+                string query = "SELECT * FROM bicicleta WHERE id_estF = '" + index + "'";
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 SqlCommand comando = conn.CreateCommand();
                 SqlDataReader dr = cmd.ExecuteReader();
+
+
 
                 while (dr.Read())
                 {
-                    string idBici = dr.GetString(0);
-                    cmbBici.Items.Add(idBici);
+                    string patente = dr.GetString(0);
+                    cmbPatente.Items.Add(patente);
                 }
+
+
             }
-            catch (Exception zz)
+            catch (Exception ee)
             {
-                throw zz;
+                throw ee;
             }
             finally
             {
                 conn.Close();
             }
 
-            cmbBici.Items.Refresh();
-        }
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            /*
-            Manejadora mane = new Manejadora();
-            SqlConnection conn = mane.ConexionDBQuery();
-
-            cmbBici.Items.Clear();
-            try
-            {
-                conn.Open();
-
-                int wea = cmbEst.SelectedIndex + 1;
-                string query = "SELECT * FROM bicicleta WHERE id_estF = " + wea;
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                SqlCommand comando = conn.CreateCommand();
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                
-                    string idBici = dr.GetString(0);
-                    cmbBici.Items.Add(idBici);
-                    MessageBox.Show(idBici);
-
-            }
-            catch (Exception zz)
-            {
-                throw zz;
-            }
-            finally
-            {
-                conn.Close();
-            }
-            
-          */  
         }
     }
 }

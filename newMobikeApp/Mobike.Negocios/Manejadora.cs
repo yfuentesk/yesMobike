@@ -80,7 +80,10 @@ namespace Mobike.Negocios
             List<Estacionamiento> ListarEstacionamiento = new List<Estacionamiento>();
             foreach (Datos.estacionamiento est in Conexion.Mob.estacionamiento)
             {
-                Estacionamiento nuevoEstacionamiento = new Estacionamiento(est.id_est, est.nombre, est.direccion, est.capacidad);
+                Estacionamiento nuevoEstacionamiento = new Estacionamiento(est.id_est, 
+                                                                           est.nombre, 
+                                                                           est.direccion, 
+                                                                           est.capacidad);
                 ListarEstacionamiento.Add(nuevoEstacionamiento);
             }
             return ListarEstacionamiento;
@@ -91,7 +94,10 @@ namespace Mobike.Negocios
             List<Bicicleta> ListarBicicleta = new List<Bicicleta>();
             foreach (Datos.bicicleta b in Conexion.Mob.bicicleta)
             {
-                Bicicleta nuevaBici = new Bicicleta(b.id_bici,b.location,b.estado,b.id_estF);
+                Bicicleta nuevaBici = new Bicicleta(b.id_bici,
+                                                    b.location,
+                                                    b.estado,
+                                                    b.id_estF);
                 ListarBicicleta.Add(nuevaBici);
             }
             return ListarBicicleta;
