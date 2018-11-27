@@ -98,15 +98,7 @@ namespace Mobike.Negocios
                     tarjeta = this.Tarjeta,
                     saldo = this.Saldo,
                     correo = this.Correo
-                    /*
-       public string id_persona { get; set; }
-       public string password { get; set; }
-       public string nombre { get; set; }
-       public string direccion { get; set; }
-       public long tarjeta { get; set; }
-       public double saldo { get; set; }
-       public string correo { get; set; }
-   */
+
                 };
                 Conexion.Mob.usuario.Add(usu);
                 Conexion.Mob.SaveChanges();

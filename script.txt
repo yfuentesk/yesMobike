@@ -105,3 +105,35 @@ ALTER TABLE recorrido
     ADD CONSTRAINT reco_per_fk FOREIGN KEY ( id_personaF )
         REFERENCES usuario ( id_persona );
 
+--Comuna(s)
+INSERT INTO comuna VALUES(1,'La Reina');
+--Estacionamientos
+INSERT INTO estacionamiento VALUES(1,'estacionamiento1','direccion#001',90,1)
+INSERT INTO estacionamiento VALUES(2,'estacionamiento2','direccion#002',90,1)
+INSERT INTO estacionamiento VALUES(3,'estacionamiento3','direccion#003',90,1)
+INSERT INTO estacionamiento VALUES(4,'estacionamiento4','direccion#004',90,1)
+--Bicicletas
+--1
+INSERT INTO bicicleta VALUES('T8KY','lugar#001','Disponible',1)
+INSERT INTO bicicleta VALUES('714D','lugar#002','Disponible',1)
+INSERT INTO bicicleta VALUES('G0QA','lugar#003','Disponible',1)
+INSERT INTO bicicleta VALUES('RJDO','lugar#004','Disponible',1)
+--2
+INSERT INTO bicicleta VALUES('J4XJ','lugar#001','Disponible',2)
+INSERT INTO bicicleta VALUES('3T5Q','lugar#002','Disponible',2)
+INSERT INTO bicicleta VALUES('VAMQ','lugar#003','Disponible',2)
+INSERT INTO bicicleta VALUES('28GV','lugar#004','Disponible',2)
+--3
+INSERT INTO bicicleta VALUES('N27Y','lugar#001','Disponible',3)
+INSERT INTO bicicleta VALUES('3HTQ','lugar#002','Disponible',3)
+INSERT INTO bicicleta VALUES('75UQ','lugar#003','Disponible',3)
+INSERT INTO bicicleta VALUES('E2O5','lugar#004','Disponible',3)
+--4
+INSERT INTO bicicleta VALUES('8AEB','lugar#001','Disponible',4)
+INSERT INTO bicicleta VALUES('9NGN','lugar#002','Disponible',4)
+INSERT INTO bicicleta VALUES('EHHZ','lugar#003','Disponible',4)
+INSERT INTO bicicleta VALUES('M61I','lugar#004','Disponible',4)
+
+SELECT * FROM estacionamiento;
+SELECT * FROM bicicleta;
+

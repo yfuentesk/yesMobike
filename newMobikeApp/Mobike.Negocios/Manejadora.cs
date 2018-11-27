@@ -15,6 +15,18 @@ namespace Mobike.Negocios
 
         }
 
+        public SqlConnection ConexionDBQuery()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+            "Data Source=DESKTOP-LQI7STV\\SQLEXPRESS;" +
+            "Initial Catalog=MoBike;" +
+            "integrated security = True;" +
+            "MultipleActiveResultSets = True;";
+
+            return conn;
+        }
+
         public List<Usuario> ListarUsuario()
         {
             List<Usuario> ListaUsuario = new List<Usuario>();

@@ -9,6 +9,12 @@
     <Grid Background="#FFF8F8F8">
         <Rectangle Fill="#FFFF4611" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="472"/>
         <Label Content="Mobike" Background="{x:Null}" Foreground="White" FontSize="48" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" HorizontalAlignment="Center" Margin="0,0,0,749"/>
+        <Label Content="Indique estacionamiento: " HorizontalAlignment="Left" Margin="50,133,0,0" VerticalAlignment="Top"/>
+        <Label Content="Seleccione codigo de bicicleta: " HorizontalAlignment="Left" Margin="50,199,0,0" VerticalAlignment="Top"/>
+        <Label Content="Selección de bicicleta" HorizontalAlignment="Left" Margin="161,90,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbEst" HorizontalAlignment="Left" Margin="202,137,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cmbBici" HorizontalAlignment="Left" Margin="225,203,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="89,307,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>
