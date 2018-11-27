@@ -39,7 +39,7 @@ CREATE TABLE recorrido (
     tiempo_estimado    FLOAT NOT NULL,
     cobro              FLOAT NOT NULL,
     id_personaF        NVARCHAR(20) NOT NULL,
-    correoF NVARCHAR(50) NOT NULL
+    correoF NVARCHAR(50) NOT NULL,
     id_biciF           NVARCHAR(15) NOT NULL
 );
 
@@ -104,6 +104,4 @@ ALTER TABLE recorrido
 ALTER TABLE recorrido
     ADD CONSTRAINT reco_per_fk FOREIGN KEY ( id_personaF )
         REFERENCES usuario ( id_persona );
-ALTER TABLE recorrido
-  ADD CONSTRAINT reco_corr_fk FOREIGN KEY (correoF)
-       REFERENCES usuario (correo);
+
