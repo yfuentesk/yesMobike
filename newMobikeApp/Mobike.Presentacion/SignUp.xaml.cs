@@ -27,16 +27,15 @@ namespace Mobike.Presentación
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnRegistro_Click(object sender, RoutedEventArgs e)
         {
-            Usuario us = new Usuario(txtRut.Text, 
-                                    txtPass.Text, 
-                                    txtNombre.Text, 
-                                    txtDireccion.Text, 
-                                    Convert.ToInt64(txtTarjeta.Text), 
-                                    0, 
+            Usuario us = new Usuario(txtRut.Text,
+                                    txtPass.ToString(),
+                                    txtNombre.Text,
+                                    txtDireccion.Text,
+                                    Convert.ToInt64(txtTarjeta.Text),
+                                    0,
                                     txtCorreo.Text);
-
             if (us.Create())
             {
 
@@ -45,14 +44,20 @@ namespace Mobike.Presentación
             }
             else
             {
-                MessageBox.Show("rut: "+txtRut.Text+
-                                "\rPass: "+txtDireccion.Text+
-                                "\rNombre: "+txtNombre.Text+
-                                "\rTarjeta: "+ Convert.ToInt64(txtTarjeta.Text)+
-                                "\r: 0"+
-                                "\rDireccion: "+txtDireccion.Text);
+                MessageBox.Show("rut: " + txtRut.Text +
+                                "\rPass: " + txtDireccion.Text +
+                                "\rNombre: " + txtNombre.Text +
+                                "\rTarjeta: " + Convert.ToInt64(txtTarjeta.Text) +
+                                "\r: 0" +
+                                "\rDireccion: " + txtDireccion.Text);
             }
+        }
 
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }

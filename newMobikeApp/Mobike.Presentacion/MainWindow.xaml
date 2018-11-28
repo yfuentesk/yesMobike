@@ -8,15 +8,15 @@
         Title="Mobike - Menú Principal" Height="650" Width="480">
     <Grid Background="#FFF8F8F8">
         <Rectangle Fill="#FFFF4611" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="472"/>
-        <Label Content="Mobike" Background="{x:Null}" Foreground="White" FontSize="48" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="142,0" HorizontalContentAlignment="Center" Height="75" VerticalAlignment="Top"/>
+        <Label Content="Mobike" Background="{x:Null}" Foreground="White" FontSize="48" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" HorizontalContentAlignment="Center" Height="75" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
         <Rectangle Fill="#FFF9754F" Height="100" Margin="25,100,25,0" Stroke="Black" VerticalAlignment="Top"/>
         <Rectangle Fill="#FFF9754F" Height="100" Margin="25,225,25,0" Stroke="Black" VerticalAlignment="Top"/>
         <Rectangle Fill="#FFF9754F" Height="100" Margin="25,350,25,0" Stroke="Black" VerticalAlignment="Top"/>
-        <Label Content="Iniciar Sesión" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,130,252,444" HorizontalContentAlignment="Center"/>
-        <Label Content="Pedir Bicicleta" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,382,247,194" HorizontalContentAlignment="Center"/>
-        <Label Content="Registrarse" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,257,277,319" HorizontalContentAlignment="Center"/>
+        <Label Content="Iniciar Sesión" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,130,230,444" HorizontalContentAlignment="Stretch"/>
+        <Label Content="Pedir Bicicleta" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,382,0,194" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="212"/>
+        <Label Content="Registrarse" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,257,0,319" HorizontalContentAlignment="Stretch" HorizontalAlignment="Left" Width="170" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
         <Rectangle Fill="#FFF9754F" Height="100" Margin="25,475,25,0" Stroke="Black" VerticalAlignment="Top"/>
-        <Label Content="Ver Mis Recorridos" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,507,190,69" HorizontalContentAlignment="Center"/>
+        <Label Content="Ver Mis Recorridos" Background="{x:Null}" Foreground="White" FontSize="24" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Margin="50,507,0,69" HorizontalContentAlignment="Stretch" HorizontalAlignment="Left" Width="254"/>
         <Button x:Name="btnLogin" HorizontalAlignment="Right" Margin="0,130,50,0" VerticalAlignment="Top" Width="100" Height="45" Click="btnLogin_Click">
             <StackPanel Orientation="Horizontal">
                 <Image Width="50" Height="42" Source="caret.png"/>
