@@ -39,9 +39,7 @@ namespace Mobike.Presentación
             bici.Show();
             this.Close();
         }
-
-       
-
+        
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             Login log = new Login();

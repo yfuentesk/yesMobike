@@ -13,9 +13,9 @@
         <Label Content="Seleccione codigo de bicicleta: " HorizontalAlignment="Left" Margin="38,258,0,0" VerticalAlignment="Top"/>
         <Label Content="Selección de bicicleta" HorizontalAlignment="Left" Margin="161,90,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cmbEst" HorizontalAlignment="Left" Margin="210,184,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbEst_SelectionChanged"/>
-        <Button x:Name="btnComienzo" Content="Comienzar Recorrido" HorizontalAlignment="Left" Margin="50,733,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click" Height="38"/>
+        <Button x:Name="btnComienzo" Content="Comienzar Recorrido" HorizontalAlignment="Left" Margin="50,733,0,0" VerticalAlignment="Top" Width="120" Click="btnComienzo_Click" Height="38"/>
         <ComboBox x:Name="cmbPatente" HorizontalAlignment="Left" Margin="224,262,0,0" VerticalAlignment="Top" Width="106"/>
-        <Button x:Name="btnFin" Content="Terminar Recorrido" HorizontalAlignment="Left" Margin="269,733,0,0" VerticalAlignment="Top" Width="108" Click="Button_Click" Height="38"/>
+        <Button x:Name="btnFin" Content="Terminar Recorrido" HorizontalAlignment="Left" Margin="269,733,0,0" VerticalAlignment="Top" Width="108" Click="btnFin_Click" Height="38"/>
 
     </Grid>
 </Window>

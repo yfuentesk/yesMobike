@@ -28,16 +28,7 @@ namespace Mobike.Presentación
             ListadoEstacionamientos();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
-
-
-
         
-        private void btnComenzarRecorrido(object sender, RoutedEventArgs e)
-        {
-           
-          
-        }
-
         private void ListadoEstacionamientos()
         {
             Manejadora mane = new Manejadora();
@@ -104,6 +95,16 @@ namespace Mobike.Presentación
             {
                 conn.Close();
             }
+
+        }
+
+        private void btnComienzo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnFin_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
