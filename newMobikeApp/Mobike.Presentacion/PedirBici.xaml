@@ -5,17 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mobike.Presentación"
         mc:Ignorable="d"
-        Title="Mobike - Pedir Bicicleta" Height="854" Width="480">
+        Title="Mobike - Pedir Bicicleta" Height="500" Width="480">
     <Grid Background="#FFF8F8F8">
         <Rectangle Fill="#FFFF4611" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="472"/>
-        <Label Content="Mobike" Background="{x:Null}" Foreground="White" FontSize="48" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" HorizontalAlignment="Center" Margin="0,0,0,749"/>
-        <Label Content="Indique estacionamiento: " HorizontalAlignment="Left" Margin="58,180,0,0" VerticalAlignment="Top"/>
-        <Label Content="Seleccione codigo de bicicleta: " HorizontalAlignment="Left" Margin="38,258,0,0" VerticalAlignment="Top"/>
-        <Label Content="Selección de bicicleta" HorizontalAlignment="Left" Margin="161,90,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cmbEst" HorizontalAlignment="Left" Margin="210,184,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbEst_SelectionChanged"/>
-        <Button x:Name="btnComienzo" Content="Comienzar Recorrido" HorizontalAlignment="Left" Margin="50,733,0,0" VerticalAlignment="Top" Width="120" Click="btnComienzo_Click" Height="38"/>
-        <ComboBox x:Name="cmbPatente" HorizontalAlignment="Left" Margin="224,262,0,0" VerticalAlignment="Top" Width="106"/>
-        <Button x:Name="btnFin" Content="Terminar Recorrido" HorizontalAlignment="Left" Margin="269,733,0,0" VerticalAlignment="Top" Width="108" Click="btnFin_Click" Height="38"/>
+        <Label Content="Mobike" Background="{x:Null}" Foreground="White" FontSize="48" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Height="75" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Indique estacionamiento: " HorizontalAlignment="Left" Margin="75,130,0,0" VerticalAlignment="Top"/>
+        <Label Content="Seleccione codigo de bicicleta: " HorizontalAlignment="Left" Margin="75,180,0,0" VerticalAlignment="Top"/>
+        <Label Content="Información del Recorrido" Margin="0,80,0,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="239"/>
+        <ComboBox x:Name="cmbEst" HorizontalAlignment="Right" Margin="0,130,75,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbEst_SelectionChanged" Height="26" TabIndex="0"/>
+        <Button x:Name="btnComienzo" Content="Comienzar Recorrido" Margin="154,0,154,75" VerticalAlignment="Bottom" Click="btnComienzo_Click" Height="50" Width="150"/>
+        <ComboBox x:Name="cmbPatente" HorizontalAlignment="Right" Margin="0,180,75,0" VerticalAlignment="Top" Width="120" Height="26" TabIndex="1"/>
+        <Button x:Name="btnFin" Content="Terminar Recorrido" HorizontalAlignment="Right" Margin="0,0,25,75" Width="125" Click="btnFin_Click" Height="50" VerticalAlignment="Bottom"/>
+        <Rectangle Fill="#FFFF4611" HorizontalAlignment="Left" Width="472" Height="50" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnVolver" Content="Volver al Menú" HorizontalAlignment="Left" Margin="25,0,0,75" Width="125" Click="btnVolver_Click" Height="50" VerticalAlignment="Bottom"/>
+        <Label x:Name="lblValor" Content="Valor del Recorrido: $" HorizontalAlignment="Center" Margin="0,0,0,150" VerticalAlignment="Bottom" Width="175" Visibility="Hidden"/>
+        <Label x:Name="lblKm" Content="Kilómetros recorridos:" HorizontalAlignment="Left" Margin="75,230,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBox x:Name="txtKm" HorizontalAlignment="Right" Height="26" Margin="0,230,75,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewTextInput="TxtKm_PreviewTextInput" Visibility="Hidden"/>
 
     </Grid>
 </Window>

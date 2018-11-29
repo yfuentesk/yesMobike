@@ -77,15 +77,11 @@ namespace Mobike.Presentación
                 SqlCommand comando = conn.CreateCommand();
                 SqlDataReader dr = cmd.ExecuteReader();
 
-
-
                 while (dr.Read())
                 {
                     string patente = dr.GetString(0);
                     cmbPatente.Items.Add(patente);
                 }
-
-
             }
             catch (Exception ee)
             {
@@ -95,17 +91,44 @@ namespace Mobike.Presentación
             {
                 conn.Close();
             }
-
         }
 
         private void btnComienzo_Click(object sender, RoutedEventArgs e)
         {
+            if (cmbEst.SelectedIndex != -1 && cmbPatente.SelectedIndex != -1)
+            {
+                //Hace visibles los label y el textbox relacionados con el recorrido.
+                lblValor.Visibility = Visibility.Visible;
+                lblKm.Visibility = Visibility.Visible;
+                txtKm.Visibility = Visibility.Visible;
 
+                //Aquí debe ir el cálculo del valor
+
+                //El cual se debe añadir al label de Valor.
+                lblValor.Content = "Valor del Recorrido: $ XXX";
+            }
+            else
+            {
+                MessageBox.Show("Por favor seleccione en qué estacionamiento está y qué bicicleta eligió", "Error");
+                cmbEst.Focus();
+            }
         }
 
         private void btnFin_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void TxtKm_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
     }
 }

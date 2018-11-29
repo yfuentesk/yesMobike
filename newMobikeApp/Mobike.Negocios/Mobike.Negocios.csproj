@@ -50,6 +50,7 @@
     <Compile Include="Administrador.cs" />
     <Compile Include="Bicicleta.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="Enumerador.cs" />
     <Compile Include="Estacionamiento.cs" />
     <Compile Include="Manejadora.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -19,7 +19,7 @@ namespace Mobike.Negocios
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            "Data Source=DESKTOP-LQI7STV\\SQLEXPRESS;" +
+            "Data Source=CRITO-PC\\SQLSERVER;" +
             "Initial Catalog=MoBike;" +
             "integrated security = True;" +
             "MultipleActiveResultSets = True;";
