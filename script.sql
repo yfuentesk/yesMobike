@@ -32,7 +32,7 @@ ALTER TABLE estacionamiento ADD CONSTRAINT est_pk PRIMARY KEY ( id_est );
 
 
 CREATE TABLE recorrido (
-    id_recorrido       INT NOT NULL,
+    id_recorrido       INT IDENTITY(1,1),
     kilometros         FLOAT NOT NULL,
     inicio_recorrido   DATE NOT NULL,
     fin_recorrido      DATE NOT NULL,
@@ -67,7 +67,7 @@ ALTER TABLE administrador ADD CONSTRAINT adm_pk PRIMARY KEY ( id_adm );
 ALTER TABLE usuario ADD CONSTRAINT user_pk PRIMARY KEY ( id_persona );
 
 CREATE TABLE boleta(
-	id_boleta INT NOT NULL,
+	id_boleta INT IDENTITY(1,1),
 	fecha Date NOT NULL,
 	id_personaF NVARCHAR(20) NOT NULL,
 	id_biciF NVARCHAR(15) NOT NULL,
