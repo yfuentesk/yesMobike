@@ -84,6 +84,34 @@ namespace Mobike.Negocios
             this.Correo = Correo;
         }
         #endregion
+
+        public bool Login(string correo, string contraseña)
+        {
+            try
+            {
+                Datos.usuario us = (from auxlog in Conexion.Mob.usuario
+                                   where auxlog.correo == correo
+                                   select auxlog).First();
+
+                this.Password = us.password;
+                this.IdPersona = us.id_persona;
+                this.Correo = us.correo;
+
+                if (this.Correo == correo && this.Password == contraseña)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         #region CRUD
         public bool Create()
         {

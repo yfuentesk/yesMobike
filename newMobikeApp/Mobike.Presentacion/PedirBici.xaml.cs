@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Mobike.Negocios;
+using Mobike.Presentacion;
 
 namespace Mobike.Presentación
 {
@@ -132,39 +133,49 @@ namespace Mobike.Presentación
 
         private void btnFin_Click(object sender, RoutedEventArgs e)
         {
+            Usuario usu = new Usuario();
             Bicicleta b = new Bicicleta();
-            int km = Convert.ToInt32(txtKm.Text);
-            int valor = ((km * 150) + 30 * 30);
-            lblValor.Content = "Valor del Recorrido: $ " + valor;
-            b.CambiarEstado(cmbPatente.Text);
-            string est = b.GetEstado(cmbPatente.Text);
-            DateTime fin = DateTime.Now;
-            Recorrido r = new Recorrido(km, inicio, fin, 30, valor, "123", "123", cmbPatente.Text);
-            if (r.Create())
+            if (usu.Login(txtCorreo.Text, txtContraseña.Text))
             {
-                MessageBox.Show("DALEEE");
+                MessageBox.Show("Cliente Identificado");
+                int km = Convert.ToInt32(txtKm.Text);
+                int valor = ((km * 150) + 30 * 30);
+                lblValor.Content = "Valor del Recorrido: $ " + valor;
+                b.CambiarEstado(cmbPatente.Text);
+                string est = b.GetEstado(cmbPatente.Text);
+                DateTime fin = DateTime.Now;
+                Negocios.Recorrido r = new Negocios.Recorrido(km, inicio, fin, 30, valor, "123", "123", cmbPatente.Text);
+                if (r.Create())
+                {
+                    MessageBox.Show("DALEEE");
+                }
+                else
+                {
+                    MessageBox.Show("\r" + km +
+                                    "\r" + inicio +
+                                    "\r" + fin +
+                                    "\r" + 30 +
+                                    "\r" + valor +
+                                    "\r123" +
+                                    "\r123" +
+                                    "\r" + cmbPatente.Text);
+
+                    Clipboard.SetText("\r" + km +
+                                    "\r" + inicio +
+                                    "\r" + fin +
+                                    "\r" + 30 +
+                                    "\r" + valor +
+                                    "\r191919" +
+                                    "\raeaeae" +
+                                    "\r" + cmbPatente.Text);
+
+                }
             }
             else
             {
-                MessageBox.Show("\r" + km +
-                                "\r" + inicio +
-                                "\r" + fin +
-                                "\r" + 30 +
-                                "\r" + valor +
-                                "\r123" +
-                                "\r123" +
-                                "\r" + cmbPatente.Text);
-
-                Clipboard.SetText("\r" + km +
-                                "\r" + inicio +
-                                "\r" + fin +
-                                "\r" + 30 +
-                                "\r" + valor +
-                                "\r191919" +
-                                "\raeaeae" +
-                                "\r" + cmbPatente.Text);
-
+                MessageBox.Show("Correo y/o clave incorrectos");
             }
+            
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)

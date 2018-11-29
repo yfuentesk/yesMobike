@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Administrador.cs" />
     <Compile Include="Bicicleta.cs" />
+    <Compile Include="Boleta.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Enumerador.cs" />
     <Compile Include="Estacionamiento.cs" />

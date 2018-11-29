@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Mobike.Presentación"
         mc:Ignorable="d"
         Title="Mobike - Pedir Bicicleta" Height="500" Width="480">
-    <Grid Background="#FFF8F8F8">
+    <Grid Background="#FFF8F8F8" Height="582" VerticalAlignment="Top" Margin="0,0,0,-113">
         <Rectangle Fill="#FFFF4611" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="472"/>
         <Label Content="Mobike" Background="{x:Null}" Foreground="White" FontSize="48" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" Height="75" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Label Content="Indique estacionamiento: " HorizontalAlignment="Left" Margin="75,130,0,0" VerticalAlignment="Top"/>
@@ -21,6 +21,10 @@
         <Label x:Name="lblValor" Content="Valor del Recorrido: $" HorizontalAlignment="Center" Margin="0,0,0,150" VerticalAlignment="Bottom" Width="175" Visibility="Hidden"/>
         <Label x:Name="lblKm" Content="Kilómetros recorridos:" HorizontalAlignment="Left" Margin="75,230,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
         <TextBox x:Name="txtKm" HorizontalAlignment="Right" Height="26" Margin="0,230,75,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewTextInput="TxtKm_PreviewTextInput" Visibility="Hidden"/>
+        <Label x:Name="lbCorreo" Content="Correo" HorizontalAlignment="Left" Margin="38,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbContraseña" Content="Contraseña" HorizontalAlignment="Left" Margin="221,409,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="92,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtContraseña" HorizontalAlignment="Left" Height="23" Margin="301,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
