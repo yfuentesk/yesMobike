@@ -30,7 +30,7 @@ namespace Mobike.Presentación
         private void btnRegistro_Click(object sender, RoutedEventArgs e)
         {
             Usuario us = new Usuario(txtRut.Text,
-                                    txtPass.ToString(),
+                                    txtPass.Password,
                                     txtNombre.Text,
                                     txtDireccion.Text,
                                     Convert.ToInt64(txtTarjeta.Text),
@@ -45,11 +45,12 @@ namespace Mobike.Presentación
             else
             {
                 MessageBox.Show("rut: " + txtRut.Text +
-                                "\rPass: " + txtDireccion.Text +
+                                "\rPass: " + txtPass.Password +
                                 "\rNombre: " + txtNombre.Text +
                                 "\rTarjeta: " + Convert.ToInt64(txtTarjeta.Text) +
                                 "\r: 0" +
-                                "\rDireccion: " + txtDireccion.Text);
+                                "\rDireccion: " + txtDireccion.Text+
+                                "\r"+txtCorreo.Text);
             }
         }
 

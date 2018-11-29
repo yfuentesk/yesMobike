@@ -19,7 +19,7 @@ namespace Mobike.Negocios
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            "Data Source=CRITO-PC\\SQLSERVER;" +
+            "Data Source=DESKTOP-LQI7STV\\SQLEXPRESS;" +
             "Initial Catalog=MoBike;" +
             "integrated security = True;" +
             "MultipleActiveResultSets = True;";
@@ -64,12 +64,15 @@ namespace Mobike.Negocios
             List<Recorrido> ListarRecorrido = new List<Recorrido>();
             foreach (Datos.recorrido re in Conexion.Mob.recorrido)
             {
-                Recorrido nuevoRecorrido = new Recorrido(re.id_recorrido,
+                Recorrido nuevoRecorrido = new Recorrido(
                                                          re.kilometros,
                                                          re.inicio_recorrido,
                                                          re.fin_recorrido,
                                                          re.tiempo_estimado,
-                                                         re.cobro);
+                                                         re.cobro,
+                                                         re.id_personaF,
+                                                         re.correoF,
+                                                         re.id_biciF);
                 ListarRecorrido.Add(nuevoRecorrido);
             }
             return ListarRecorrido;

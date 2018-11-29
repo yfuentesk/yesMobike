@@ -22,3 +22,15 @@ C:\Users\ryu66\Desktop\yesMobike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Dato
 C:\Users\ryu66\Desktop\yesMobike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.csproj.CopyComplete
 C:\Users\ryu66\Desktop\yesMobike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.dll
 C:\Users\ryu66\Desktop\yesMobike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.pdb
+F:\yesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\Mobike.Datos.dll.config
+F:\yesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\Mobike.Datos.dll
+F:\yesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\Mobike.Datos.pdb
+F:\yesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\EntityFramework.dll
+F:\yesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\EntityFramework.SqlServer.dll
+F:\yesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\EntityFramework.xml
+F:\yesMoBike\newMobikeApp\Mobike.Datos\bin\Debug\EntityFramework.SqlServer.xml
+F:\yesMoBike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.csprojResolveAssemblyReference.cache
+F:\yesMoBike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.csproj.CoreCompileInputs.cache
+F:\yesMoBike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.csproj.CopyComplete
+F:\yesMoBike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.dll
+F:\yesMoBike\newMobikeApp\Mobike.Datos\obj\Debug\Mobike.Datos.pdb

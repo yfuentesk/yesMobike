@@ -55,7 +55,26 @@ namespace Mobike.Negocios
             this.Estacionamiento = Estacionamiento;
 
         }
+        public void CambiarEstado(string patente)
+        {
+            Datos.bicicleta bic = Conexion.Mob.bicicleta.First(b => b.id_bici == patente);
+            if (bic.estado == "Disponible")
+            {
+                bic.estado = "Ocupada";
+            }
+            else
+            {
+                bic.estado = "Disponible";
+            }
+            Conexion.Mob.SaveChanges();
 
+        }
+
+        public string GetEstado(string patente)
+        {
+            Datos.bicicleta bic = Conexion.Mob.bicicleta.First(b => b.id_bici == patente);
+            return bic.estado;
+        }
         #region CRUD
         public bool Create()
         {

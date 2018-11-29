@@ -22,6 +22,8 @@ namespace Mobike.Presentación
     /// </summary>
     public partial class PedirBici : Window
     {
+
+        DateTime inicio = DateTime.MinValue;
         public PedirBici()
         {
             InitializeComponent();
@@ -97,10 +99,24 @@ namespace Mobike.Presentación
         {
             if (cmbEst.SelectedIndex != -1 && cmbPatente.SelectedIndex != -1)
             {
+                Bicicleta b = new Bicicleta();
                 //Hace visibles los label y el textbox relacionados con el recorrido.
                 lblValor.Visibility = Visibility.Visible;
                 lblKm.Visibility = Visibility.Visible;
                 txtKm.Visibility = Visibility.Visible;
+
+                if (b.GetEstado(cmbPatente.Text) == "Disponible")
+                {
+                    b.CambiarEstado(cmbPatente.Text);
+                    //Aquí debe ir el cálculo del valor
+                    string est = b.GetEstado(cmbPatente.Text);
+                    inicio = DateTime.Now;
+                }
+                else
+                {
+                    MessageBox.Show("Verifique que la bicicleta esté disponible");
+                }
+
 
                 //Aquí debe ir el cálculo del valor
 
@@ -116,7 +132,39 @@ namespace Mobike.Presentación
 
         private void btnFin_Click(object sender, RoutedEventArgs e)
         {
+            Bicicleta b = new Bicicleta();
+            int km = Convert.ToInt32(txtKm.Text);
+            int valor = ((km * 150) + 30 * 30);
+            lblValor.Content = "Valor del Recorrido: $ " + valor;
+            b.CambiarEstado(cmbPatente.Text);
+            string est = b.GetEstado(cmbPatente.Text);
+            DateTime fin = DateTime.Now;
+            Recorrido r = new Recorrido(km, inicio, fin, 30, valor, "123", "123", cmbPatente.Text);
+            if (r.Create())
+            {
+                MessageBox.Show("DALEEE");
+            }
+            else
+            {
+                MessageBox.Show("\r" + km +
+                                "\r" + inicio +
+                                "\r" + fin +
+                                "\r" + 30 +
+                                "\r" + valor +
+                                "\r123" +
+                                "\r123" +
+                                "\r" + cmbPatente.Text);
 
+                Clipboard.SetText("\r" + km +
+                                "\r" + inicio +
+                                "\r" + fin +
+                                "\r" + 30 +
+                                "\r" + valor +
+                                "\r191919" +
+                                "\raeaeae" +
+                                "\r" + cmbPatente.Text);
+
+            }
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
