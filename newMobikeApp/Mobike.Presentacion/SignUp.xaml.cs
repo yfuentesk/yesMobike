@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Mobike.Negocios;
+using Mobike.Presentacion;
 
 namespace Mobike.Presentación
 {
@@ -36,29 +38,40 @@ namespace Mobike.Presentación
                                     Convert.ToInt64(txtTarjeta.Text),
                                     0,
                                     txtCorreo.Text);
-            if (us.Create())
+            try
             {
-
+                us.Create();
                 MessageBox.Show("Usuario Creado con exito");
-
             }
-            else
+            catch (ArgumentException zz)
             {
-                MessageBox.Show("rut: " + txtRut.Text +
-                                "\rPass: " + txtPass.Password +
-                                "\rNombre: " + txtNombre.Text +
-                                "\rTarjeta: " + Convert.ToInt64(txtTarjeta.Text) +
-                                "\r: 0" +
-                                "\rDireccion: " + txtDireccion.Text+
-                                "\r"+txtCorreo.Text);
+                //Clipboard.SetText("rut: " + txtRut.Text +
+                //                "\rPass: " + txtPass.Password +
+                //                "\rNombre: " + txtNombre.Text +
+                //                "\rTarjeta: " + Convert.ToInt64(txtTarjeta.Text) +
+                //                "\r: 0" +
+                //                "\rDireccion: " + txtDireccion.Text+
+                //                "\r"+txtCorreo.Text);
+
+                throw new Exception(zz.Message);
             }
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            Login login = new Login();
+            login.Show();
             this.Close();
+        }
+
+        private void TxtTarjeta_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
     }
 }

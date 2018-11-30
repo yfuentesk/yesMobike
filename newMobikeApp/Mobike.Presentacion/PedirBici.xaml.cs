@@ -23,18 +23,24 @@ namespace Mobike.Presentación
     /// </summary>
     public partial class PedirBici : Window
     {
+        DateTime inicio = DateTime.Now;
+        Manejadora mane = new Manejadora();
+        Bicicleta b = new Bicicleta();
+        Usuario usu = new Usuario();
+        string usuarioEmail;
+        string usuarioPass;
 
-        DateTime inicio = DateTime.MinValue;
-        public PedirBici()
+        public PedirBici(string umail, string upass)
         {
             InitializeComponent();
             ListadoEstacionamientos();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            usuarioEmail = umail;
+            usuarioPass = upass;
         }
         
         private void ListadoEstacionamientos()
         {
-            Manejadora mane = new Manejadora();
             SqlConnection conn = mane.ConexionDBQuery();
 
             try
@@ -51,6 +57,7 @@ namespace Mobike.Presentación
                 {
                     string nombreEst = dr.GetString(1);
                     cmbEst.Items.Add(nombreEst);
+                    cmbEst2.Items.Add(nombreEst);
                 }
             }
             catch (Exception zz)
@@ -100,16 +107,16 @@ namespace Mobike.Presentación
         {
             if (cmbEst.SelectedIndex != -1 && cmbPatente.SelectedIndex != -1)
             {
-                Bicicleta b = new Bicicleta();
                 //Hace visibles los label y el textbox relacionados con el recorrido.
                 lblValor.Visibility = Visibility.Visible;
                 lblKm.Visibility = Visibility.Visible;
                 txtKm.Visibility = Visibility.Visible;
+                cmbEst.Visibility = Visibility.Hidden;
+                cmbEst2.Visibility = Visibility.Visible;
 
                 if (b.GetEstado(cmbPatente.Text) == "Disponible")
                 {
                     b.CambiarEstado(cmbPatente.Text);
-                    //Aquí debe ir el cálculo del valor
                     string est = b.GetEstado(cmbPatente.Text);
                     inicio = DateTime.Now;
                 }
@@ -117,12 +124,6 @@ namespace Mobike.Presentación
                 {
                     MessageBox.Show("Verifique que la bicicleta esté disponible");
                 }
-
-
-                //Aquí debe ir el cálculo del valor
-
-                //El cual se debe añadir al label de Valor.
-                lblValor.Content = "Valor del Recorrido: $ XXX";
             }
             else
             {
@@ -133,54 +134,53 @@ namespace Mobike.Presentación
 
         private void btnFin_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usu = new Usuario();
-            Bicicleta b = new Bicicleta();
-            if (usu.Login(txtCorreo.Text, txtContraseña.Text))
-            {
-                MessageBox.Show("Cliente Identificado");
-                int km = Convert.ToInt32(txtKm.Text);
-                int valor = ((km * 150) + 30 * 30);
-                lblValor.Content = "Valor del Recorrido: $ " + valor;
-                b.CambiarEstado(cmbPatente.Text);
-                string est = b.GetEstado(cmbPatente.Text);
-                DateTime fin = DateTime.Now;
-                Negocios.Recorrido r = new Negocios.Recorrido(km, inicio, fin, 30, valor, "123", "123", cmbPatente.Text);
-                if (r.Create())
-                {
-                    MessageBox.Show("DALEEE");
-                }
-                else
-                {
-                    MessageBox.Show("\r" + km +
-                                    "\r" + inicio +
-                                    "\r" + fin +
-                                    "\r" + 30 +
-                                    "\r" + valor +
-                                    "\r123" +
-                                    "\r123" +
-                                    "\r" + cmbPatente.Text);
-
-                    Clipboard.SetText("\r" + km +
-                                    "\r" + inicio +
-                                    "\r" + fin +
-                                    "\r" + 30 +
-                                    "\r" + valor +
-                                    "\r191919" +
-                                    "\raeaeae" +
-                                    "\r" + cmbPatente.Text);
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("Correo y/o clave incorrectos");
-            }
+            int km = Convert.ToInt32(txtKm.Text);
+            string patente = cmbPatente.Text;
+            int idestacionamiento = cmbEst2.SelectedIndex + 1;
+            double valor = ((km * 150) + 30 * 30);
+            lblValor.Content = "Valor del Recorrido: $ " + valor;
             
+            if (cmbEst2.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, indique en qué estacionamiento dejó la bicicleta.", "Mobike");
+                return;
+            }
+
+            DateTime fin = DateTime.Now;
+            double minutos = fin.Subtract(inicio).TotalMinutes;
+            try
+            {
+                if (usu.Login(usuarioEmail, usuarioPass) == true)
+                {
+                    if (mane.AddRecorrido(km, inicio.ToString("yyyy-MM-dd HH:mm:ss"), fin.ToString("yyyy-MM-dd HH:mm:ss"),
+                                          Math.Round(minutos), Math.Round(valor), usu.IdPersona, usuarioEmail, patente) == true)
+                    {
+                        b.CambiarEstado(patente);
+                        b.CambiarEstacionamiento(patente, idestacionamiento);
+                        MessageBox.Show("Recorrido registrado con éxito.", "Mobike");
+                    }
+                    else
+                    {
+                        MessageBox.Show("\r" + km +
+                                        "\r" + inicio.ToString("yyyy-MM-dd HH:mm:ss") +
+                                        "\r" + fin.ToString("yyyy-MM-dd HH:mm:ss") +
+                                        "\r" + Math.Round(minutos) +
+                                        "\r" + Math.Round(valor) +
+                                        "\r" + usu.IdPersona +
+                                        "\r" + usuarioEmail +
+                                        "\r" + cmbPatente.Text, "Error qlo");
+                    }
+                }
+            }
+            catch (Exception zz)
+            {
+                throw zz;
+            }
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(usuarioEmail, usuarioPass);
             mainWindow.Show();
             this.Close();
         }

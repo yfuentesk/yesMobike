@@ -19,7 +19,7 @@ namespace Mobike.Negocios
         {
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString =
-            "Data Source=DESKTOP-LQI7STV\\SQLEXPRESS;" +
+            "Data Source=CRITO-PC\\SQLSERVER;" +
             "Initial Catalog=MoBike;" +
             "integrated security = True;" +
             "MultipleActiveResultSets = True;";
@@ -104,6 +104,58 @@ namespace Mobike.Negocios
                 ListarBicicleta.Add(nuevaBici);
             }
             return ListarBicicleta;
+        }
+
+        public DataTable Tablita(string correo)
+        {
+            SqlConnection con = this.ConexionDBQuery();
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                string query = "select * from recorrido where correoF = @correo";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.SelectCommand.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@correo",
+                    Value = correo,
+                    SqlDbType = SqlDbType.NVarChar,
+                    Size = 100
+                });
+                da.Fill(dt);
+            }
+            catch (Exception zz)
+            {
+                throw zz;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dt;
+        }
+
+        public bool AddRecorrido(int km, string inicio, string fin, double estimado, double cobro, string rut, string correo, string patente)
+        {
+            SqlConnection conn = this.ConexionDBQuery();
+            try
+            {
+                conn.Open();
+                string query = "insert into recorrido values(" + km + ", '" + inicio + "', '" + fin + "', " + estimado
+                    + ", " + cobro + ", '" + rut + "', '" + correo + "', '" + patente + "')";
+                SqlCommand sqlcom = new SqlCommand(query, conn);
+                sqlcom.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception zz)
+            {
+                return false;
+                throw zz;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

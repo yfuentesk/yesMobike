@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Mobike.Presentacion;
 
 namespace Mobike.Presentación
 {
@@ -20,37 +21,35 @@ namespace Mobike.Presentación
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        string usuarioEmail;
+        string usuarioPass;
+
+        public MainWindow(string umail, string upass)
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            usuarioEmail = umail;
+            usuarioPass = upass;
         }
        
         private void btnReco_Click(object sender, RoutedEventArgs e)
         {
-            Recorridos reco = new Recorridos();
+            MisRecorridos reco = new MisRecorridos(usuarioEmail, usuarioPass);
             reco.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnBici_Click(object sender, RoutedEventArgs e)
         {
-            PedirBici bici = new PedirBici();
+            PedirBici bici = new PedirBici(usuarioEmail, usuarioPass);
             bici.Show();
-            this.Close();
+            this.Hide();
         }
-        
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+
+        private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
-            Login log = new Login();
-            log.Show();
-            this.Close();
-        }
-        
-        private void btnSignUp_Click(object sender, RoutedEventArgs e)
-        {
-            SignUp sign = new SignUp();
-            sign.Show();
+            Login login = new Login();
+            login.Show();
             this.Close();
         }
     }

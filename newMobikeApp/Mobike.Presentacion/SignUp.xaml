@@ -5,32 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mobike.Presentación"
         mc:Ignorable="d"
-        Title="Mobike - Registro de Usuario" Height="550" Width="480">
+        Title="Mobike - Registro de Usuario" Height="500" Width="480">
     <Grid Background="#FFF8F8F8">
         <Rectangle Fill="#FFFF4611" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="472"/>
         <Label Content="Mobike" Background="{x:Null}" Foreground="White" FontSize="48" FontWeight="Bold" FontFamily="Microsoft JhengHei UI" HorizontalAlignment="Center" Height="75" VerticalAlignment="Top" Width="472" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnRegistro" Content="Crear Usuario" Margin="273,375,75,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="50" Click="btnRegistro_Click"></Button>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="24" Margin="95,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnRegistro" Content="Crear Usuario" Margin="273,0,75,75" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Height="50" Click="btnRegistro_Click" TabIndex="9"></Button>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="24" Margin="95,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" TabIndex="2"/>
         <Label Content="Direccion" HorizontalAlignment="Left" Margin="23,162,0,0" VerticalAlignment="Top" Width="65"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Right" Height="23" Margin="0,162,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Right" Height="23" Margin="0,162,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" TabIndex="3"/>
         <Label Content="Nombre" HorizontalAlignment="Right" Margin="0,162,150,0" VerticalAlignment="Top" Width="65"/>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="95,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
-        <Label Content="Rut" HorizontalAlignment="Left" Margin="25,110,0,0" VerticalAlignment="Top" Width="65"/>
-        <TextBox x:Name="txtTarjeta" HorizontalAlignment="Right" Height="23" Margin="0,217,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="95,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" TabIndex="4"/>
+        <Label Content="Rut" HorizontalAlignment="Left" Margin="23,214,0,0" VerticalAlignment="Top" Width="65"/>
+        <TextBox x:Name="txtTarjeta" HorizontalAlignment="Right" Height="23" Margin="0,217,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" PreviewTextInput="TxtTarjeta_PreviewTextInput" TabIndex="5"/>
         <Label Content="Tarjeta" HorizontalAlignment="Right" Margin="0,214,150,0" VerticalAlignment="Top" Width="65"/>
         <Label Content="Fecha de Vencimiento" HorizontalAlignment="Right" Margin="0,266,150,0" VerticalAlignment="Top" Height="23"/>
         <Label Content="CVC" HorizontalAlignment="Left" Margin="25,266,0,0" VerticalAlignment="Top" Height="23"/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="95,214,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center"/>
-        <Label Content="Correo" HorizontalAlignment="Left" Margin="25,214,0,0" VerticalAlignment="Top" Width="65"/>
-        <PasswordBox x:Name="txtPass" HorizontalAlignment="Right" Height="23" Margin="0,113,25,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="95,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" TabIndex="0"/>
+        <Label Content="Correo" HorizontalAlignment="Left" Margin="23,110,0,0" VerticalAlignment="Top" Width="65"/>
+        <PasswordBox x:Name="txtPass" HorizontalAlignment="Right" Height="23" Margin="0,113,25,0" VerticalAlignment="Top" Width="120" TabIndex="1" VerticalContentAlignment="Center"/>
         <Label Content="Password" HorizontalAlignment="Right" Margin="0,110,150,0" VerticalAlignment="Top" Width="65"/>
         <ComboBox x:Name="cmbDV" HorizontalAlignment="Left" Height="23" Margin="190,98,0,0" VerticalAlignment="Top" Width="25" Visibility="Hidden"/>
         <Label Content="-" HorizontalAlignment="Left" Margin="170,95,0,0" VerticalAlignment="Top" Height="26" Visibility="Hidden"/>
-        <Label Content="/&#xA;" Margin="327,264,0,0" VerticalAlignment="Top" Height="23" Width="105" HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="95,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnVolver" Content="Volver al Menú" HorizontalAlignment="Left" Margin="75,375,0,0" VerticalAlignment="Top" Width="124" Height="50" Click="btnVolver_Click"/>
+        <Label Content="/&#xA;" Margin="0,266,32,0" VerticalAlignment="Top" Height="23" Width="105" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="95,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewTextInput="TextBox_PreviewTextInput" TabIndex="6"/>
+        <Button x:Name="btnVolver" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="75,0,0,75" VerticalAlignment="Bottom" Width="124" Height="50" Click="btnVolver_Click" TabIndex="99"/>
         <Rectangle Fill="#FFFF4611" HorizontalAlignment="Left" Width="472" Height="50" VerticalAlignment="Bottom"/>
-        <ComboBox x:Name="cmbAno" Margin="0,266,25,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="50" SelectedIndex="0">
+        <ComboBox x:Name="cmbAno" Margin="0,266,25,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="50" SelectedIndex="0" TabIndex="8">
             <ComboBoxItem Content="Año" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="18" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="19" HorizontalAlignment="Left" Width="92"/>
@@ -40,7 +40,7 @@
             <ComboBoxItem Content="23" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="24" HorizontalAlignment="Left" Width="92"/>
         </ComboBox>
-        <ComboBox x:Name="cmbMes" HorizontalAlignment="Right" Margin="0,266,95,0" VerticalAlignment="Top" Width="50" Height="23" SelectedIndex="0">
+        <ComboBox x:Name="cmbMes" HorizontalAlignment="Right" Margin="0,266,95,0" VerticalAlignment="Top" Width="50" Height="23" SelectedIndex="0" TabIndex="7">
             <ComboBoxItem Content="Mes" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="01" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="02" HorizontalAlignment="Left" Width="92"/>

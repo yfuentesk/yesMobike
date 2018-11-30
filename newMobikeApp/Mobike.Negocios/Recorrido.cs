@@ -110,7 +110,6 @@ namespace Mobike.Negocios
         }
         #endregion
         #region CRUD
-
         public bool Create()
         {
             try
@@ -196,4 +195,3 @@ namespace Mobike.Negocios
         #endregion
     }
 }
-

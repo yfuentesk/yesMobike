@@ -8,24 +8,24 @@ namespace Mobike.Negocios
 {
     public class Bicicleta
     {
+        #region Campos
         private string _idBicicleta;
         private string _location;
         private string _estado;
         private int _estF;
-
+        #endregion
+        #region Propiedades
         public int Estacionamiento
         {
             get { return _estF; }
             set { _estF = value; }
         }
 
-
         public string Estado
         {
             get { return _estado; }
             set { _estado = value; }
         }
-
 
         public string Location
         {
@@ -38,7 +38,8 @@ namespace Mobike.Negocios
             get { return _idBicicleta; }
             set { _idBicicleta = value; }
         }
-
+        #endregion
+        #region Constructores
         public Bicicleta()
         {
             _idBicicleta = string.Empty;
@@ -47,7 +48,7 @@ namespace Mobike.Negocios
 
         }
 
-        public Bicicleta(string idBici, string Locacion, string Estado,int Estacionamiento)
+        public Bicicleta(string idBici, string Locacion, string Estado, int Estacionamiento)
         {
             this.IdBicicleta = idBici;
             this.Location = Locacion;
@@ -55,6 +56,8 @@ namespace Mobike.Negocios
             this.Estacionamiento = Estacionamiento;
 
         }
+        #endregion
+        #region Metodos
         public void CambiarEstado(string patente)
         {
             Datos.bicicleta bic = Conexion.Mob.bicicleta.First(b => b.id_bici == patente);
@@ -67,7 +70,13 @@ namespace Mobike.Negocios
                 bic.estado = "Disponible";
             }
             Conexion.Mob.SaveChanges();
+        }
 
+        public void CambiarEstacionamiento(string patente, int idEstacion)
+        {
+            Datos.bicicleta bic = Conexion.Mob.bicicleta.First(b => b.id_bici == patente);
+            bic.id_estF = idEstacion;
+            Conexion.Mob.SaveChanges();
         }
 
         public string GetEstado(string patente)
@@ -75,6 +84,13 @@ namespace Mobike.Negocios
             Datos.bicicleta bic = Conexion.Mob.bicicleta.First(b => b.id_bici == patente);
             return bic.estado;
         }
+
+        public int GetEstacionamiento(string patente)
+        {
+            Datos.bicicleta bic = Conexion.Mob.bicicleta.First(b => b.id_bici == patente);
+            return bic.id_estF;
+        }
+        #endregion
         #region CRUD
         public bool Create()
         {

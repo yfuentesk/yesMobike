@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-F:\yesMoBike\newMobikeApp\Mobike.Presentacion\obj\Debug\
+C:\Users\ryu66\Desktop\yesMobike\newMobikeApp\Mobike.Presentacion\obj\Debug\
 Mobike.Presentacion
 none
 false
 DEBUG;TRACE
-F:\yesMoBike\newMobikeApp\Mobike.Presentacion\App.xaml
-5914505437
+C:\Users\ryu66\Desktop\yesMobike\newMobikeApp\Mobike.Presentacion\App.xaml
+5123273135
 
-13-239550267
-19-29573718
-Login.xaml;MainWindow.xaml;PedirBici.xaml;Recorrido.xaml;SignUp.xaml;
+131054559077
+19825630422
+Login.xaml;MainWindow.xaml;MisRecorridos.xaml;PedirBici.xaml;SignUp.xaml;
 
-True
+False
 

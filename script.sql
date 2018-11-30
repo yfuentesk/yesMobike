@@ -39,7 +39,7 @@ CREATE TABLE recorrido (
     tiempo_estimado    FLOAT NOT NULL,
     cobro              FLOAT NOT NULL,
     id_personaF        NVARCHAR(20) NOT NULL,
-    correoF NVARCHAR(50) NOT NULL,
+    correoF			   NVARCHAR(50) NOT NULL,
     id_biciF           NVARCHAR(15) NOT NULL
 );
 
@@ -135,5 +135,8 @@ INSERT INTO bicicleta VALUES('EHHZ','lugar#003','Disponible',4)
 INSERT INTO bicicleta VALUES('M61I','lugar#004','Disponible',4)
 
 SELECT * FROM estacionamiento;
-SELECT * FROM bicicleta;
+SELECT * FROM bicicleta WHERE estado = 'Ocupada';
+UPDATE bicicleta SET estado = 'Disponible' WHERE estado = 'Ocupada';
+SELECT * FROM usuario;
+SELECT * FROM recorrido;
 
